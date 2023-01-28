@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>약 검색하기</title>
+</head>
+<style>
+    header {  
+        height: 65px;
+        width: 1700px;
+        padding: 1rem;
+        color: white;
+        background: rgb(58, 146, 254);
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav li{
+        display:inline-block;
+        font-size:25px;
+        /* padding: 10px; */
+        margin: 40px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    h1{
+        position: absolute;
+        left: 30px;
+    }
+    iframe{
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+</style>
+<body>
+    <header>
+        <h1><a href="homepage.html">화상투약기</a></h1>
+        <nav>
+            <ul class="nav">
+                <div id="nav_contain">
+                    <li><a href='datamap.html' >MAP</a></li>
+                    <li><a href='medicine.html'>MEDICINE</a></li>
+                    <li><a href='FAQ.html'>FAQ</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <iframe width="1200px" height="700px" src="https://www.health.kr/searchDrug/search_detail.asp"></iframe>
+</body>
+</html>

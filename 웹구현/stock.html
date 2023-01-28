@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>약 재고 보기</title>
+    <style>
+      body {
+        background-color: rgb(201, 204, 205);
+      }
+      #title {
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 30px;
+        height: 40px;
+        text-align: center;
+        padding-top: 20px;
+        margin-left: 150px;
+        margin-right: 150px;
+        font-weight: bold;
+        font-size: 25px;
+        padding-bottom: 10px;
+      }
+      #container {
+        background-color: white;
+        height: 900px;
+        text-align: center;
+        margin-left: 150px;
+        margin-right: 150px;
+      }
+      header {
+        height: 65px;
+        width: 1700px;
+        padding: 1rem;
+        color: white;
+        background: rgb(58, 146, 254);
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav li {
+        display: inline-block;
+        font-size: 25px;
+        padding: 10px;
+        margin: 40px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      h1 {
+        position: absolute;
+        left: 30px;
+      }
+      hr {
+        width: 1000px;
+      }
+
+      #con {
+      }
+      .stock {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+      }
+
+      table,
+      td,
+      th {
+        margin-top: 30px;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="homepage.html">화상투약기</a></h1>
+      <nav>
+        <ul class="nav">
+          <div id="nav_contain">
+            <li><a href="datamap.html">MAP</a></li>
+            <li><a href="medicine.html">MEDICINE</a></li>
+            <li><a href="">FAQ</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <div id="container">
+      <div id="title">구명약국 화상투약기점 재고</div>
+      <div id="con">
+        <span style="font-weight: bold; font-size: 20px">잔여 약품 재고</span>
+        <hr />
+        <section>
+          <article>
+            <table border="1" style="width: 80%" class="stock" font-size:20px;>
+              <tr>
+                <th></th>
+                <th>일반의약품</th>
+                <th>재고</th>
+              </tr>
+              <tr>
+                <th rowspan="4">해열진통제</th>
+                <td>덱시엔연질캡슐</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>슈메디펜</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>아날라프연질캡슐</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>아세트아미노펜</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <th rowspan="2">진경제</th>
+                <td>부스코판당의정</td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td>에스코판정</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <th rowspan="2">안과용제</th>
+                <td>히알아이점안액</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>아이톡점안액</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <th rowspan="3">항히스타민제</th>
+                <td>목기천연질캡슐</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>스르텍연질캡슐</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>콜스탑연질캡슐</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <th rowspan="3">진해거담제</th>
+                <td>아스콘틴서방정</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>베로텍에어로졸</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>뮤코펙트정 및 시럽(암브록솔)</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <th rowspan="2">정장제</th>
+                <td>비오플(사카로마이세스보울라디균)</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td>누크베비산</td>
+                <td>20</td>
+              </tr>
+            </table>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

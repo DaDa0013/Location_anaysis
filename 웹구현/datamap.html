@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>여러개 마커에 이벤트 등록하기1</title>
+    <style>
+      .customoverlay {
+        position: relative;
+        bottom: 85px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        border-bottom: 2px solid #ddd;
+        float: left;
+      }
+      .customoverlay:nth-of-type(n) {
+        border: 0;
+        box-shadow: 0px 1px 2px #888;
+      }
+      .customoverlay a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        text-align: center;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        overflow: hidden;
+        background: #d95050;
+        background: #d95050
+          url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
+          no-repeat right 14px center;
+      }
+      .customoverlay .title {
+        display: block;
+        text-align: center;
+        background: #fff;
+        margin-right: 35px;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .customoverlay:after {
+        content: "";
+        position: absolute;
+        margin-left: -12px;
+        left: 50%;
+        bottom: -12px;
+        width: 22px;
+        height: 12px;
+        background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png");
+      }
+      header {
+        height: 65px;
+        width: 1700px;
+        padding: 1rem;
+        color: white;
+        background: rgb(58, 146, 254);
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nav li {
+        display: inline-block;
+        font-size: 25px;
+        /* padding: 10px; */
+        margin: 40px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      h1 {
+        position: absolute;
+        left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><a href="homepage.html">화상투약기</a></h1>
+      <nav>
+        <ul class="nav">
+          <div id="nav_contain">
+            <li><a href="datamap.html">MAP</a></li>
+            <li><a href="medicine.html">MEDICINE</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <div id="map" style="width: 1750px; height: 830px"></div>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b180766a2af55a586bd5974d4f5c3d69"
+    ></script>
+    <script>
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(34.8289262, 126.1145745), // 지도의 중심좌표
+          level: 8, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
+      var positions = [
+        {
+          content: "<div>구명약국점</div>",
+          latlng: new kakao.maps.LatLng(34.8289262, 126.1145745),
+        },
+        {
+          content: "<div>세명약국점</div>",
+          latlng: new kakao.maps.LatLng(34.7212122, 125.9327628),
+        },
+        {
+          content: "<div>유한약국점</div>",
+          latlng: new kakao.maps.LatLng(35.0864667, 126.1071864),
+        },
+      ];
+
+      for (var i = 0; i < positions.length; i++) {
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+          map: map, // 마커를 표시할 지도
+          position: positions[i].latlng, // 마커의 위치
+          title: positions[i].content,
+          clickable: true,
+        });
+
+        // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        var content =
+          '<div class="customoverlay">' +
+          '  <a href="stock.html" target="_blank">' +
+          '    <span class="title">구명약국점</span>' +
+          "  </a>" +
+          "</div>";
+        var content1 =
+          '<div class="customoverlay">' +
+          '  <a href="stock.html" target="_blank">' +
+          '    <span class="title">세명약국점</span>' +
+          "  </a>" +
+          "</div>";
+        var content2 =
+          '<div class="customoverlay">' +
+          '  <a href="stock.html" target="_blank">' +
+          '    <span class="title">유한약국점</span>' +
+          "  </a>" +
+          "</div>";
+
+        // 커스텀 오버레이가 표시될 위치입니다
+        var position = [
+          new kakao.maps.LatLng(34.8289262, 126.1145745),
+          new kakao.maps.LatLng(34.7212122, 125.9327628),
+          new kakao.maps.LatLng(35.0864667, 126.1071864),
+        ];
+        // 커스텀 오버레이를 생성합니다
+        var customOverlay = new kakao.maps.CustomOverlay({
+          map: map,
+          position: position[0],
+          content: content,
+          yAnchor: 1,
+        });
+        var customOverlay1 = new kakao.maps.CustomOverlay({
+          map: map,
+          position: position[1],
+          content: content1,
+          yAnchor: 1,
+        });
+        var customOverlay2 = new kakao.maps.CustomOverlay({
+          map: map,
+          position: position[2],
+          content: content2,
+          yAnchor: 1,
+        });
+      }
+    </script>
+  </body>
+</html>
